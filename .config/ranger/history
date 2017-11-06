@@ -1,50 +1,13 @@
-open_with ``
-vim
-new
-!shutdown now
-fg
-open_with` 
-rename mega.deb
-rename a
-rm .config.swp
-rm
-rename wp.deb
-rename test.pdf
-cp Wall1.png
-cp Wall2.png
-c Wall2.jpg
-help c
-mkdir lightdm
-rm startup
-r startup
-h
-help
-shell -p 
-delete startup
-delete *
-rename 1745-4792-1-SM.pdf
-cp
-c
-open_with dpkg
-mv
-rename UP849868.docx
-rename WebF1 pre
-open_with unzip
-rename WebF1
-open_with mupdf
-rename npm-debug.log
-shell 
-find 
-r
+rename i3
+rename ranger
 open_with 
-rename wallpaper.jpg
-w
-mkdir
-mkdir git
-
-set_filter 
-mkdir .config
-open_with q
-set hidden_filter 
+rename git
 delte
 delete
+rename README.md
+open_with $EDITOR = vim
+$EDITOR = vim
+$EDITOR
+
+open_with vim
+set hidden_filter
