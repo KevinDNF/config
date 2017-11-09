@@ -1,7 +1,7 @@
 #https://i3wm.org/docs/userguide.html
 
 set $mod Mod4
- #sets Super
+#sets Super
 font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -126,25 +126,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#	i3bar_command i3bar -t
-
-
-#}
-
 #----------------------------Var------------------------------
 
 set $term i3-sensible-terminal
+set $browser vivaldi-stable
+
 
 #---------------------------Gaps--------------------------------
 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders both
 gaps inner 10
-gaps outer 2
+
+bindsym $mod+Shift+add gaps inner current plus 10 
+bindsym $mod+Shift+minus gaps inner current minus 10 
 
 #-------------------------Startup Commands-----------------------
 #exec --no-startup-id 
@@ -156,10 +151,12 @@ exec polybar example
 #exec --no-startup-id sudo mount -a #Mount Other drives
 #exec --no-startup-id setxkbmap -option caps:super #caps = super
 #exec sudo lightdm -c ~/.config/lightdm/lightdm.conf
+
+
 #----------------------------LockScreen-----------------------------
+set $lock . ~/.config/scripts/lock.sh
 
-
-bindsym $mod+Shift+Return exec i3lock -t -e -i ~/.config/wallpaper/lockscreen.png
+bindsym $mod+Shift+Return exec $lock 
 
 #-----------------------------Python-----------------------------
 #bindsym $mod+p exec  
@@ -196,7 +193,6 @@ bindsym $mod+d exec --no-startup-id rofi -config ~/.config/rofi/rofi.conf -show 
 set $VolUp amixer -D pulse sset Master 5%+
 set $VolDown amixer -D pulse sset Master 5%-
 set $mute amixer -D pulse sset Master toggle 
-set $browser vivaldi-stable
 
 
 ###---Extra XF86 Keys---###
