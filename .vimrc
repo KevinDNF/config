@@ -1,6 +1,10 @@
 ""Edited by Kevin Navarro 
 ""He
 "" V0.1 Testing stuff so most things won't even work.
+set linebreak nolist "break on end word
+
+
+let g:livepreview_previewer = 'mupdf'
 
 set nocompatible 
 ""stop vim from trying to be compatible with vi
@@ -128,9 +132,9 @@ syntax on
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
+"set tw=79   " width of document (used by gd)
+"set nowrap  " don't automatically wrap on load
+"set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
