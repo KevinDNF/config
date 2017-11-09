@@ -1,6 +1,7 @@
 #https://i3wm.org/docs/userguide.html
 
 set $mod Mod4
+ #sets Super
 font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -12,18 +13,11 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -43,11 +37,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+# Toggles split orientation
+bindsym $mod+v split t
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -96,7 +87,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec pkill polybar; exec polybar example; restart 
+bindsym $mod+Shift+r exec pkill polybar; exec sleep 1 ;  exec polybar example ; restart ; 
+
+
  
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -166,7 +159,7 @@ exec polybar example
 #----------------------------LockScreen-----------------------------
 
 
-bindsym $mod+l exec i3lock -t -e -i ~/.config/wallpaper/lockscreen.jpg
+bindsym $mod+Shift+Return exec i3lock -t -e -i ~/.config/wallpaper/lockscreen.png
 
 #-----------------------------Python-----------------------------
 #bindsym $mod+p exec  
