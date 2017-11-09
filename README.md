@@ -1,8 +1,8 @@
-#Kevin Linux rice
+# Kevin Linux rice
 
 Same configuration files are being used on both machines.
 
-##Hardware used
+## Hardware used
 
 Laptop - Compaq Presario CQ61i 
 OS     - Ubuntu 16.04 LTS
@@ -17,7 +17,7 @@ GPU    - Nvidia GTX970
 RAM    - 32GB DDR3
 
 
-##Programs used
+## Programs used
 
 Terminal emulator - Terminator
 Window Manager - i3-gaps
