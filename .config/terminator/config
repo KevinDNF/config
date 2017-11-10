@@ -27,13 +27,14 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.72
-    background_image = None
+    background_darkness = 0.35
     background_type = transparent
     copy_on_selection = True
     cursor_blink = False
+    cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     palette = "#656565:#ff5c5c:#6e9f40:#ffd000:#00b7ff:#c745dc:#43f1f4:#b1b1b1:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     scrollback_infinite = True
+    scrollbar_position = hidden
     show_titlebar = False
     visible_bell = True
