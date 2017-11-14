@@ -1,7 +1,5 @@
 #https://i3wm.org/docs/userguide.html
 
-set $mod Mod4
-#sets Super
 font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -26,10 +24,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -86,60 +84,53 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r exec pkill polybar; exec sleep 1 ;  exec polybar example ; restart ; 
-
-
  
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+#--------------------------Resize-----------------
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-       # bindsym j resize shrink width 10 px or 10 ppt
-       # bindsym k resize grow height 10 px or 10 ppt
-       # bindsym l resize shrink height 10 px or 10 ppt
-       # bindsym semicolon resize grow width 10 px or 10 ppt
-
-		bindsym h resize shrink width 10 px or 10 ppt
+		bindsym l resize shrink width 10 px or 10 ppt
 		bindsym k resize grow height 10 px or 10 ppt
 		bindsym j resize shrink height 10 px or 10 ppt
-		bindsym l resize grow width 10px or 10 ppt
+		bindsym h resize grow width 10px or 10 ppt
 
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
         bindsym Up resize grow height 10 px or 10 ppt
         bindsym	Down resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+		
+		bindsym m gaps inner current plus 10
+		bindsym n gaps inner current minus 10
+
 }
 
 bindsym $mod+r mode "resize"
 
 #----------------------------Var------------------------------
 
+
+set $mod Mod4
 set $term i3-sensible-terminal
 set $browser vivaldi-stable
-
+set $rConfig ~/.config/rofi/rofi.conf
 
 #---------------------------Gaps--------------------------------
 
 for_window [class="^.*"] border pixel 0
 hide_edge_borders both
 gaps inner 10
-
-bindsym $mod+Shift+add gaps inner current plus 10 
-bindsym $mod+Shift+minus gaps inner current minus 10 
 
 #-------------------------Startup Commands-----------------------
 #exec --no-startup-id 
@@ -165,16 +156,16 @@ bindsym $mod+Shift+Return exec $lock
 #
 #------------------------------D-Menu---------------------------
 #
-bindsym $mod+d exec --no-startup-id rofi -config ~/.config/rofi/rofi.conf -show drun
+bindsym $mod+d exec --no-startup-id rofi -config $rConfig -show drun
 #
 #----------------------Scratchpads--------------------------------
 #--Calculator
 
-exec --no-startup-id $term -T scratch -e bc 
-for_window [title= "scratch"] floating enable; 
-for_window [title="scratch"] move scratchpad;
+exec --no-startup-id $term -T maths -e bc 
+for_window [title= "maths"] floating enable; 
+for_window [title="maths"] move scratchpad;
 
-bindsym $mod+c [title="scratch"] scratchpad show 
+bindsym $mod+c [title="maths"] scratchpad show 
 
 #
 #----------------------Laptop-Keys--------------------------------
