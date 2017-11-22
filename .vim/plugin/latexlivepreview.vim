@@ -1,3 +1,4 @@
+
 " Copyright (C) 2012 Hong Xu
 
 " This file is part of vim-live-preview.
