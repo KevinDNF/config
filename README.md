@@ -1,11 +1,11 @@
 # Kevin Linux rice
 
-Same configuration files are being used on both machines.
+WIP -- Transfering setup to arch
 
 ## Hardware used
 
 Laptop - Compaq Presario CQ61i  
-OS     - Ubuntu 16.04 LTS  
+OS     - Arch 
 CPU    - Intel Celeron T3100 @ 1.89GHz  
 GPU    - Intel Integrated Graphics  
 RAM    - 2GB  
