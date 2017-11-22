@@ -86,7 +86,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec pkill polybar; exec sleep 1 ;  exec polybar example ; restart ; 
+bindsym $mod+Shift+r exec pkill polybar; exec sleep 1 ;  exec polybar n ; restart ; 
  
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -113,6 +113,8 @@ mode "resize" {
 		
 		bindsym m gaps inner current plus 10
 		bindsym n gaps inner current minus 10
+		
+  
 
 }
 
@@ -128,17 +130,28 @@ set $rConfig ~/.config/rofi/rofi.conf
 
 #---------------------------Gaps--------------------------------
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1 
+
+
+bindsym $mod+b [class="^.*"] border toggle 
 hide_edge_borders both
+
+#some colous				border		background	text
+client.focused				#000000		#eeeeee		#000000
+client.unfocused			#000000		#eeeeee		#000000
+client.focused_inactive		#000000		#eeeeee		#000000	
+client.urgent				#000000		#eeeeee		#000000
+
+
 gaps inner 10
 
 #-------------------------Startup Commands-----------------------
 #exec --no-startup-id 
 exec xset +fp ~/.fonts
 exec xset fp rehash
-exec compton -b 
+exec compton -b --config ~/.config/compton/compton.conf 
 exec feh --bg-fill ~/.config/wallpaper/wallpaper.jpg 
-exec polybar example
+exec polybar n 
 #exec --no-startup-id sudo mount -a #Mount Other drives
 #exec --no-startup-id setxkbmap -option caps:super #caps = super
 #exec sudo lightdm -c ~/.config/lightdm/lightdm.conf
