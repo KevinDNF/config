@@ -14,6 +14,8 @@ shopt -s histappend
 
 # Sets keyboard to gb
 setxkbmap gb
+setxkbmap -option caps:swapescape
+
 
 #updates text fill after commands
 shopt -s checkwinsize

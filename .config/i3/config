@@ -2,11 +2,16 @@
 
 font pango:monospace 8
 
+#---------------------Programs----------
+
+bindsym $mod+Return exec $term 
+
+
+
+#---------------------WindowControl-----
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec $term 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,8 +47,6 @@ bindsym $mod+v split t
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -57,6 +60,8 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+#-------------------------Workspaces-----------
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -81,6 +86,8 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+#-----------------------Reload/Restart/Exit--------------
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -146,21 +153,15 @@ client.urgent				#000000		#eeeeee		#000000
 gaps inner 10
 
 #-------------------------Startup Commands-----------------------
-#exec --no-startup-id 
-exec xset +fp ~/.fonts
-exec xset fp rehash
+
 exec compton -b --config ~/.config/compton/compton.conf 
 exec feh --bg-fill ~/.config/wallpaper/wallpaper.jpg 
 exec polybar n 
-#exec --no-startup-id sudo mount -a #Mount Other drives
-#exec --no-startup-id setxkbmap -option caps:super #caps = super
-#exec sudo lightdm -c ~/.config/lightdm/lightdm.conf
-
 
 #----------------------------LockScreen-----------------------------
-set $lock . ~/.config/scripts/lock.sh
 
-bindsym $mod+Shift+Return exec $lock 
+set $lock . ~/.config/scripts/lock.sh
+bindsym $mod+Escape exec $lock 
 
 #-----------------------------Python-----------------------------
 #bindsym $mod+p exec  
