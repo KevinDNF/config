@@ -1,11 +1,13 @@
 # Kevin Linux rice
 
-Same configuration files are being used on both machines.
+An ongoing Linux customization project.
+
+Currently moving my setup to Linux Arch
 
 ## Hardware used
 
 Laptop - Compaq Presario CQ61i  
-OS     - Ubuntu 16.04 LTS  
+OS     - Arch 
 CPU    - Intel Celeron T3100 @ 1.89GHz  
 GPU    - Intel Integrated Graphics  
 RAM    - 2GB  
@@ -19,13 +21,20 @@ RAM    - 32GB DDR3
 
 ## Programs used  
 
-+ Terminal emulator - Terminator  
-+ Window Manager - i3-gaps  
-+ Web Browser - Vivaldi (with Vimum)  
-+ File browser - Ranger  
-+ Composite Manager - Compton  
-+ Text Editor - Vim  
-+ Music Player -  
-+ Pdf viewer - MuPdf  
++ Terminal emulator  -  Terminator  
++ Window Manager	 -  i3-gaps  
++ Web Browser		 -  Vivaldi (with Vimum)  
++ File browser		 -  Ranger  
++ Composite Manager  -  Compton  
++ Text Editor		 -  Vim  
++ Music Player		 -  
++ Pdf viewer		 -  MuPdf  
++ D-Menu			 -  Rofi
 
+## To-Do
 
++ Migrate PC setup to Arch
++ Finish customizing Rofi
++ Get Ncmpc working
++ Make workspace script for : Python, Latex, HTML & GIMP
+  
