@@ -1,6 +1,8 @@
 # Kevin Linux rice
 
-WIP -- Transfering setup to arch
+
+![desktop](Screenshots/desktop.png)
+
 
 ## Hardware used
 
@@ -11,7 +13,7 @@ GPU    - Intel Integrated Graphics
 RAM    - 2GB  
 
 PC	   -  
-OS     - Ubuntu 17.10   
+OS     - Arch 
 CPU    - AMD FX8350  
 GPU    - Nvidia GTX970  
 RAM    - 32GB DDR3  
