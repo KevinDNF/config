@@ -172,18 +172,17 @@ bindsym $mod+Shift+Return exec $lock
 bindsym $mod+d exec --no-startup-id rofi -config $rConfig -show drun
 #
 #----------------------Scratchpads--------------------------------
-#--Calculator
 
-exec --no-startup-id $term -T maths -e bc 
-for_window [title= "maths"] floating enable; 
-for_window [title="maths"] move scratchpad;
+exec --no-startup-id $term -T scratch   
+for_window [title= "scratch"] floating enable; 
+for_window [title="scratch"] move scratchpad;
 
-bindsym $mod+c [title="maths"] scratchpad show 
+bindsym $mod+c [title="scratch"] scratchpad show 
 
 #
-#----------------------Laptop-Keys--------------------------------
+#----------------------Extra-Keys--------------------------------
+##These are the extra media keys that some keyboards have.
 
-#set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh
 #set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh
 
 set $VolUp amixer -D pulse sset Master 5%+
@@ -191,8 +190,6 @@ set $VolDown amixer -D pulse sset Master 5%-
 set $mute amixer -D pulse sset Master toggle 
 
 
-###---Extra XF86 Keys---###
-##These are the extra media keys that some keyboards have.
 bindsym XF86AudioMute		exec $mute
 bindsym XF86AudioLowerVolume	exec $VolDown
 bindsym XF86AudioRaiseVolume	exec $VolUp
