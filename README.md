@@ -1,13 +1,8 @@
 # Kevin Linux rice
 
-<<<<<<< HEAD
-
-=======
 An ongoing Arch Linux customization project.
 
 ![desktop](Screenshots/desktop.png)
-
->>>>>>> arch
 
 ## Hardware used
 
@@ -27,8 +22,6 @@ RAM    - 32GB DDR3
 ## Programs used  
 
 + Terminal emulator  -  Terminator  
-<<<<<<< HEAD
-=======
 + Window Manager     -  i3-gaps  
 + Web Browser	     -  Vivaldi (with Vimum)  
 + File browser	     -  Ranger  
@@ -45,5 +38,3 @@ RAM    - 32GB DDR3
 + Make workspace script for: Python, Latex, HTML/CSS & GIMP
 + Finish automatic arch install script
 
-
->>>>>>> arch
