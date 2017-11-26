@@ -1,7 +1,4 @@
-pcm.!default {
+pcm. !default {
 type plug
 slave.pcm hw
 }
-
-
-

@@ -1,8 +1,13 @@
 # Kevin Linux rice
 
-An ongoing Linux customization project.
+<<<<<<< HEAD
 
-Currently moving my setup to Linux Arch
+=======
+An ongoing Arch Linux customization project.
+
+![desktop](Screenshots/desktop.png)
+
+>>>>>>> arch
 
 ## Hardware used
 
@@ -13,28 +18,32 @@ GPU    - Intel Integrated Graphics
 RAM    - 2GB  
 
 PC	   -  
-OS     - Ubuntu 17.10   
-CPU    - AMD FX8350  
-GPU    - Nvidia GTX970  
+OS     - Arch 
+CPU    - AMD FX8350 @ 4.00GHz 
+GPU    - NVIDIA GTX970  
 RAM    - 32GB DDR3  
 
 
 ## Programs used  
 
 + Terminal emulator  -  Terminator  
-+ Window Manager	 -  i3-gaps  
-+ Web Browser		 -  Vivaldi (with Vimum)  
-+ File browser		 -  Ranger  
+<<<<<<< HEAD
+=======
++ Window Manager     -  i3-gaps  
++ Web Browser	     -  Vivaldi (with Vimum)  
++ File browser	     -  Ranger  
 + Composite Manager  -  Compton  
-+ Text Editor		 -  Vim  
-+ Music Player		 -  
-+ Pdf viewer		 -  MuPdf  
-+ D-Menu			 -  Rofi
++ Text Editor	     -  Vim  
++ Music Player	     -   
++ PDF viewer	     -  MuPdf  
++ D-Menu		     -  Rofi
 
 ## To-Do
 
-+ Migrate PC setup to Arch
-+ Finish customizing Rofi
-+ Get Ncmpc working
-+ Make workspace script for : Python, Latex, HTML & GIMP
-  
++ Finish customizing ROFI
++ Get NCPMC working
++ Make workspace script for: Python, Latex, HTML/CSS & GIMP
++ Finish automatic arch install script
+
+
+>>>>>>> arch
