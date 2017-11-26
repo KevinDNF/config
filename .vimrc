@@ -7,8 +7,9 @@ set linebreak nolist "break on end word
 let g:livepreview_previewer = 'mupdf'
 
 set nocompatible 
-""stop vim from trying to be compatible with vi
 filetype plugin on 
+
+
 
 set path=**
 ""enables the Find command to be usefull as a proper searcher. try tab
@@ -56,8 +57,10 @@ set number  " show line numbers
 "set nowrap  " don't automatically wrap on load
 "set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
 
+color wombat256mod
+
+highlight ColorColumn ctermbg=233
 
 set tabstop=4
 set softtabstop=4
