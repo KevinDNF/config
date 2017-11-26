@@ -1,5 +1,6 @@
 # Kevin Linux rice
 
+An ongoing Arch Linux customization project.
 
 ![desktop](Screenshots/desktop.png)
 
@@ -14,20 +15,28 @@ RAM    - 2GB
 
 PC	   -  
 OS     - Arch 
-CPU    - AMD FX8350  
-GPU    - Nvidia GTX970  
+CPU    - AMD FX8350 @ 4.00GHz 
+GPU    - NVIDIA GTX970  
 RAM    - 32GB DDR3  
 
 
 ## Programs used  
 
-+ Terminal emulator - Terminator  
-+ Window Manager - i3-gaps  
-+ Web Browser - Vivaldi (with Vimum)  
-+ File browser - Ranger  
-+ Composite Manager - Compton  
-+ Text Editor - Vim  
-+ Music Player -  
-+ Pdf viewer - MuPdf  
++ Terminal emulator  -  Terminator  
++ Window Manager     -  i3-gaps  
++ Web Browser	     -  Vivaldi (with Vimum)  
++ File browser	     -  Ranger  
++ Composite Manager  -  Compton  
++ Text Editor	     -  Vim  
++ Music Player	     -   
++ PDF viewer	     -  MuPdf  
++ D-Menu		     -  Rofi
+
+## To-Do
+
++ Finish customizing ROFI
++ Get NCPMC working
++ Make workspace script for: Python, Latex, HTML/CSS & GIMP
++ Finish automatic arch install script
 
 
