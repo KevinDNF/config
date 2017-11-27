@@ -14,7 +14,7 @@ RAM    - 2GB
 
 PC	   -  
 OS     - Arch 
-CPU    - AMD FX8350 @ 4.00GHz 
+CPU    - AMD FX8350 @ 4.00GHz  
 GPU    - NVIDIA GTX970  
 RAM    - 32GB DDR3  
 
