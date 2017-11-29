@@ -1,6 +1,6 @@
 #Screenshots
 
-![desktop1](Screenshots/desktop1.png)
+![desktop1](desktop1.png)
 
-![desktop2](Screenshots/desktop2.png)
+![desktop2](desktop2.png)
 
