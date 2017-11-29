@@ -1,10 +1,3 @@
-/*******************************************************************************
- * ROFI Color theme
- * Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)
- * User: PyGeek03
- * Copyright: PyGeek03
- ********************************************************************************/
-
 * {
     selected-normal-foreground:  rgba ( 0, 1, 2, 100 % );
     foreground:                  rgba ( 250, 251, 252, 100 % );
