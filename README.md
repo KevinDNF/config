@@ -2,7 +2,9 @@
 
 An ongoing Arch Linux customization project.
 
-![desktop](Screenshots/desktop.png)
+![desktop1](Screenshots/desktop1.png)
+
+![desktop2](Screenshots/desktop2.png)
 
 ## Hardware used
 
@@ -33,8 +35,6 @@ RAM    - 32GB DDR3
 
 ## To-Do
 
-+ Finish customizing ROFI
-+ Get NCPMC working
 + Make workspace script for: Python, Latex, HTML/CSS & GIMP
 + Finish automatic arch install script
 
