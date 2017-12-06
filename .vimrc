@@ -58,7 +58,7 @@ set number  " show line numbers
 "set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 
-color wombat256mod
+color wombat256mod-modified
 
 highlight ColorColumn ctermbg=233
 
