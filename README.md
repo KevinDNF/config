@@ -23,18 +23,19 @@ RAM    - 32GB DDR3
 
 ## Programs used  
 
-+ Terminal emulator  -  Terminator  
++ Terminal emulator  -  urxvt  
 + Window Manager     -  i3-gaps  
 + Web Browser	     -  Vivaldi (with Vimum)  
 + File browser	     -  Ranger  
 + Composite Manager  -  Compton  
 + Text Editor	     -  Vim  
-+ Music Player	     -   
-+ PDF viewer	     -  MuPdf  
++ Music Player	     -  Cmus 
++ PDF viewer	     -  MuPDF & Evince  
 + D-Menu		     -  Rofi
 
 ## To-Do
 
++ Reduce polybar information.
 + Make workspace script for: Python, Latex, HTML/CSS & GIMP
 + Finish automatic arch install script
 
