@@ -1,20 +1,6 @@
-""Config for Vim - KevinDNF
-""WIP
-
-
-set linebreak nolist "break on end word
-
-let g:livepreview_previewer = 'mupdf'
+""KevinDNF
 
 set nocompatible 
-filetype plugin on 
-
-
-
-set path=**
-""enables the Find command to be usefull as a proper searcher. try tab
-set wildmenu
-""Menu for picking item from FIND
 
 ""--------------------------FILE BROWSER-------------------------"
 let g:netrw_banner=0			 "disables banner
@@ -24,62 +10,90 @@ let g:netrw_liststyle=3			 "tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-"------------------Personal-Snippets-And-Mappings----------------"
+set path=**
+""enables the Find command to be usefull as a proper searcher. try tab
+set wildmenu
+""Menu for picking item from FIND
 
-
-
-
-"---------------------------------------------------------------"
-
-
-" ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-" Automatic reloading of .vimrc
+"Autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
 
+"Clear Search
+noremap <C-l> :nohl<CR>
+vnoremap <C-l> :nohl<CR>
+inoremap <C-l> :nohl<CR>
 
-" Rebind <Leader> key
-"" let mapleader = ","
 
-" Bind nohl
-" Removes highlight of your last search
-"" noremap <C-n> :nohl<CR>
-"" vnoremap <C-n> :nohl<CR>
-"" inoremap <C-n> :nohl<CR>
+"--------File-Settings------
 
-filetype off
+
+filetype on
 filetype plugin indent on
 syntax on
 
+augroup vimrc "meant to create folds
+	au BufReadPre * setlocal foldmethod=indent
+	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
 
-" Showing line numbers and length
+"--------Writting-Settings-----
+
+set linebreak nolist "break on end word
+filetype indent on
+set autoindent
+set smarttab
+set scrolloff=10 "Automove 10 lines above/below
+
+
+"----------Editor-Visuals-----
+
 set number  " show line numbers
-"set tw=79   " width of document (used by gd)
-"set nowrap  " don't automatically wrap on load
-"set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
-
 color wombat256mod-modified
-
 highlight ColorColumn ctermbg=233
 
-set tabstop=4
-set softtabstop=4
-"" set shiftwidth=4
-"" set shiftround
-"" set expandtab
-
-" Make search case insensitive
+"--------/Search------------
 set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set incsearch "start searching without enter
+set ignorecase 
+set smartcase 
 
-"disable swap files
+"-------------Swap-Files------
+"all disabled
 set nobackup
 set nowritebackup
 set noswapfile
 
-"Some things where stolen from:
-" ##Martin Brochhaus
+"--------Cursor-------------------
+
+"Changes the cursor when in insert and Normal
+
+"Normal Mode
+let &t_EI = "\x1b[\x32 q"
+"Insert Mode
+let &t_SI = "\x1b[\x36 q" 
+
+"---------Plugins-Settings--------
+let g:airline_theme='minimalist'
+let g:livepreview_previewer = 'mupdf'
+
+"--------------Plugins----------
+"Plug
+
+"AutoInstall vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 
+call plug#begin('~/.vim/plugplugins')
+
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'lervag/vimtex'
+
+call plug#end()
