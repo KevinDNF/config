@@ -21,7 +21,7 @@ GPU    - NVIDIA GTX970
 RAM    - 32GB DDR3  
 
 
-## Programs used  
+## Programs test  
 
 + Terminal emulator  -  urxvt  
 + Window Manager     -  i3-gaps  
