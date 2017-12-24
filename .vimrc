@@ -26,7 +26,7 @@ inoremap <C-l> :nohl<CR>
 
 "--------File-Settings------
 
-
+"set autoread "updates file if edited by other source
 filetype on
 filetype plugin indent on
 syntax on
@@ -38,10 +38,12 @@ augroup END
 
 "--------Writting-Settings-----
 
+set shiftwidth=4
+set smarttab
+
 set linebreak nolist "break on end word
 filetype indent on
 set autoindent
-set smarttab
 set scrolloff=10 "Automove 10 lines above/below
 
 
@@ -49,7 +51,8 @@ set scrolloff=10 "Automove 10 lines above/below
 
 set number  " show line numbers
 set colorcolumn=80
-color wombat256mod-modified
+set relativenumber 
+color brightelflord 
 highlight ColorColumn ctermbg=233
 
 "--------/Search------------
@@ -77,6 +80,32 @@ let &t_SI = "\x1b[\x36 q"
 let g:airline_theme='minimalist'
 let g:livepreview_previewer = 'mupdf'
 
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list= 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let b:syntastic_mode = "passive"
+let g:syntastic_enable_signs = "True"
+
+
+
+"highlight SyntasticError guibg=#000000
+"highlight SyntasticWarning guibg=#2f0000
+"highlight SyntasticStyleError guibg=#2f0000
+"highlight SyntasticStyleWarning guibg=#2f0000
+
+"--------------Compile-----------
+command! -nargs=* Runp !python3 -i %
+"even better
+se makeprg=python3\ -i\ %
+
+
 "--------------Plugins----------
 "Plug
 
@@ -95,5 +124,7 @@ Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'lervag/vimtex'
+Plug 'scrooloose/syntastic'
+Plug 'rawsource/monkey-vim'
 
 call plug#end()

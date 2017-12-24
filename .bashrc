@@ -5,7 +5,30 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+
+export MONKEY="$HOME/Programs/monkey2"
+PATH="$MONKEY:$MONKEY/bin:$PATH"
+export PATH
+
+
+echo -e -n "\x1b[\x34 q" # changes to steady underline
+
 alias ls='ls --color=auto'
+alias la='ls -a'
+alias wifi='. .config/scripts/wifi.sh'
+
+
+fcd() {
+
+	cd "$(find ~/ -iname "$1" | head -1 )"
+
+}
+
+fcf() {
+
+	cd "$(dirname "$(find ~/ -iname "$1" | head -1)")"
+}
+
 
 #PS1='[\u@\h \w]\$ '
 ###----------------
@@ -83,7 +106,7 @@ shopt -s checkwinsize
 
 ###------------------
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-	 exec startx
+	 exec startx -- -background none
 fi
 
 
