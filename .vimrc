@@ -23,9 +23,7 @@ noremap <C-l> :nohl<CR>
 vnoremap <C-l> :nohl<CR>
 inoremap <C-l> :nohl<CR>
 
-
-"--------File-Settings------
-
+"--------File-Settings------ 
 "set autoread "updates file if edited by other source
 filetype on
 filetype plugin indent on
@@ -38,14 +36,23 @@ augroup END
 
 "--------Writting-Settings-----
 
+set tabstop=8
+"set expandtab
+"set softtabstop=4
 set shiftwidth=4
-set smarttab
+"set smarttab
+set autoindent
+set smartindent
+
+autocmd FileType html set tabstop=2
+autocmd FileType html set shiftwidth=2
+autocmd FileType css set tabstop=2
+autocmd FileType css set shiftwidth=2
+autocmd FileType tex set textwidth=75
 
 set linebreak nolist "break on end word
 filetype indent on
-set autoindent
 set scrolloff=10 "Automove 10 lines above/below
-
 
 "----------Editor-Visuals-----
 
@@ -101,6 +108,8 @@ let g:syntastic_enable_signs = "True"
 "highlight SyntasticStyleWarning guibg=#2f0000
 
 "--------------Compile-----------
+
+set autowrite "automatic saave after make/next
 command! -nargs=* Runp !python3 -i %
 "even better
 se makeprg=python3\ -i\ %
