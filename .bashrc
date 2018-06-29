@@ -2,20 +2,26 @@
 # ~/.bashrc
 #
 
+shopt -s autocd
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 
 export MONKEY="$HOME/Programs/monkey2"
 PATH="$MONKEY:$MONKEY/bin:$PATH"
+PATH="/root/.gem/ruby/2.5.0/bin:$PATH"
 export PATH
 
 
 echo -e -n "\x1b[\x34 q" # changes to steady underline
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -F --group-directories-first '
 alias la='ls -a'
 alias wifi='. .config/scripts/wifi.sh'
+alias gport='google-chrome-stable --proxy-server=wwwcache.port.ac.uk:81'
+alias grep="grep --color=always"
+#alias cat="highlight --out-format=xterm256"
 
 
 fcd() {
@@ -110,4 +116,5 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 
 
+export BROWSER=/usr/bin/vivaldi-stable
 export EDITOR=/usr/bin/vim

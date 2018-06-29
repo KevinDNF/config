@@ -1,6 +1,7 @@
 ""KevinDNF
 
 set nocompatible 
+autocmd! bufwritepost .vimrc source % "autoreload vimrc
 
 ""--------------------------FILE BROWSER-------------------------"
 let g:netrw_banner=0			 "disables banner
@@ -15,16 +16,8 @@ set path=**
 set wildmenu
 ""Menu for picking item from FIND
 
-"Autoreload .vimrc
-autocmd! bufwritepost .vimrc source %
-
-"Clear Search
-noremap <C-l> :nohl<CR>
-vnoremap <C-l> :nohl<CR>
-inoremap <C-l> :nohl<CR>
-
 "--------File-Settings------ 
-"set autoread "updates file if edited by other source
+set autoread "updates file if edited by other source
 filetype on
 filetype plugin indent on
 syntax on
@@ -36,19 +29,21 @@ augroup END
 
 "--------Writting-Settings-----
 
-set tabstop=8
-"set expandtab
-"set softtabstop=4
-set shiftwidth=4
+set expandtab "change tabs for spaces
+set softtabstop=4 "how many collums pressing tab dows
+set tabstop=4 "how many collums a tab counts
+set shiftwidth=4 ">> operations
+
 "set smarttab
+
 set autoindent
 set smartindent
 
-autocmd FileType html set tabstop=2
-autocmd FileType html set shiftwidth=2
-autocmd FileType css set tabstop=2
-autocmd FileType css set shiftwidth=2
-autocmd FileType tex set textwidth=75
+autocmd FileType html set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
+autocmd FileType css set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType javascript set expandtab softtabstop=2 tabstop=2 shiftwidth=2
+autocmd FileType tex set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
+autocmd FileType markdown set textwidth=48
 
 set linebreak nolist "break on end word
 filetype indent on
@@ -62,11 +57,24 @@ set relativenumber
 color brightelflord 
 highlight ColorColumn ctermbg=233
 
+highlight Error ctermfg=1 ctermbg=257 guifg=Red guibg=Red
+highlight SpellBad ctermfg=1 ctermbg=257 guifg=Red guibg=Red
+highlight ErrorMsg ctermfg=1 ctermbg=257 guifg=Red guibg=Red
+highlight ALESignColumnWithoutErrors ctermfg=Red ctermbg=257 guifg=Red guibg=Red
+highlight SignColumn ctermfg=1 ctermbg=257 guifg=Red guibg=Red
+highlight Todo ctermfg=1 ctermbg=257 
+highlight SpellCap ctermfg=1 ctermbg=257 
+
 "--------/Search------------
 set hlsearch
 set incsearch "start searching without enter
 set ignorecase 
 set smartcase 
+
+"Clear Search with ctrl + l
+noremap <C-l> :nohl<CR>
+vnoremap <C-l> :nohl<CR>
+inoremap <C-l> :nohl<CR>
 
 "-------------Swap-Files------
 "all disabled
@@ -86,35 +94,20 @@ let &t_SI = "\x1b[\x36 q"
 "---------Plugins-Settings--------
 let g:airline_theme='minimalist'
 let g:livepreview_previewer = 'mupdf'
-
-
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list= 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let b:syntastic_mode = "passive"
-let g:syntastic_enable_signs = "True"
-
-
-
-"highlight SyntasticError guibg=#000000
-"highlight SyntasticWarning guibg=#2f0000
-"highlight SyntasticStyleError guibg=#2f0000
-"highlight SyntasticStyleWarning guibg=#2f0000
+let g:airline#extensions#ale#enabled = '1'
+"let g:ale_set_highlights = "0"
+"let g:ale_set_signs = "0"
+let g:ale_sign_error = ">>"
+let g:ale_sign_column_always = "1"
+"let g:ale_sign_style_error = ""
 
 "--------------Compile-----------
 
 set autowrite "automatic saave after make/next
 command! -nargs=* Runp !python3 -i %
 "even better
-se makeprg=python3\ -i\ %
-
-
+autocmd FileType python se makeprg=python3\ -i\ %
+autocmd FileType java se makeprg=javac\ %
 "--------------Plugins----------
 "Plug
 
@@ -133,7 +126,11 @@ Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'lervag/vimtex'
-Plug 'scrooloose/syntastic'
 Plug 'rawsource/monkey-vim'
+Plug 'valloric/youcompleteme' 
+Plug 'w0rp/ale'
+"Plug 'eslint/eslint'
+Plug 'pangloss/vim-javascript'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()

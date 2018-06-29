@@ -9,4 +9,8 @@ sudo rfkill block all
 sudo rfkill unblock all
 sudo netctl restart $1
 
+sleep 7
+
+ping www.google.com
+
 

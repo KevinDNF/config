@@ -6,8 +6,6 @@ font pango:monospace 8
 
 bindsym $mod+Return exec $term 
 
-
-
 #---------------------WindowControl-----
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -75,6 +73,20 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+bindsym $mod+F1 workspace number 11 :F11
+bindsym $mod+F2 workspace number 12 : F12
+bindsym $mod+F3 workspace number 13 F13
+bindsym $mod+F4 workspace number 14 F14
+bindsym $mod+F5 workspace number 15 F15  
+bindsym $mod+F6 workspace number 16 F16
+bindsym $mod+F7 workspace number 17 F17
+bindsym $mod+F8 workspace number 18 F18
+bindsym $mod+F9 workspace number 19 F19
+bindsym $mod+F10 workspace number 20 F20
+bindsym $mod+F11 workspace number 21 F21
+bindsym $mod+F12 workspace number 22 F22
+
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -86,6 +98,19 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+F1 move container to workspace 11
+bindsym $mod+Shift+F2 move container to workspace 12
+bindsym $mod+Shift+F3 move container to workspace 13
+bindsym $mod+Shift+F4 move container to workspace 14
+bindsym $mod+Shift+F5 move container to workspace 15
+bindsym $mod+Shift+F6 move container to workspace 16
+bindsym $mod+Shift+F7 move container to workspace 17
+bindsym $mod+Shift+F8 move container to workspace 18
+bindsym $mod+Shift+F9 move container to workspace 19
+bindsym $mod+Shift+F10 move container to workspace 20
+bindsym $mod+Shift+F11 move container to workspace 21
+bindsym $mod+Shift+F12 move container to workspace 22
 
 #-----------------------Reload/Restart/Exit--------------
 
@@ -121,6 +146,8 @@ mode "resize" {
 		bindsym m gaps inner current plus 10
 		bindsym n gaps inner current minus 10
 		
+		bindsym c border pixel 5 
+		bindsym x border pixel 1 
   
 
 }
@@ -131,14 +158,15 @@ bindsym $mod+r mode "resize"
 
 
 set $mod Mod4
-set $term i3-sensible-terminal
+#set $term i3-sensible-terminal
+set $term . ~/.config/scripts/terminal.sh
 set $browser vivaldi-stable
 set $rConfig ~/.config/rofi/rofi.conf
 
 #---------------------------Gaps--------------------------------
 
-for_window [class="^.*"] border pixel 1 
 
+for_window [class="^.*"] border pixel 2 
 
 bindsym $mod+b [class="^.*"] border toggle 
 hide_edge_borders both
@@ -149,14 +177,21 @@ client.unfocused			#000000		#eeeeee		#000000
 client.focused_inactive		#000000		#eeeeee		#000000	
 client.urgent				#000000		#eeeeee		#000000
 
-
 gaps inner 10
+gaps outer 20
 
 #-------------------------Startup Commands-----------------------
 
 exec compton -b --config ~/.config/compton/compton.conf 
 exec feh --bg-fill ~/.config/wallpaper/wallpaper.jpg 
 exec polybar n 
+
+#------------------------------Scripts----------------------------
+
+bindsym $mod+t exec . ~/.config/scripts/changeBar.sh
+
+
+bindsym $mod+y exec . ~/.config/scripts/nBar.sh 
 
 #----------------------------LockScreen-----------------------------
 
@@ -174,11 +209,11 @@ bindsym $mod+d exec --no-startup-id rofi -config $rConfig -show drun
 #
 #----------------------Scratchpads--------------------------------
 
-exec --no-startup-id $term -T scratch   
-for_window [title= "scratch"] floating enable; 
-for_window [title="scratch"] move scratchpad;
+# exec --no-startup-id $term -T scratch   
+# for_window [title= "scratch"] floating enable; 
+# for_window [title="scratch"] move scratchpad;
 
-bindsym $mod+c [title="scratch"] scratchpad show 
+# bindsym $mod+c [title="scratch"] scratchpad show 
 
 #
 #----------------------Extra-Keys--------------------------------
