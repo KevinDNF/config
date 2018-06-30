@@ -54,7 +54,7 @@ set scrolloff=10 "Automove 10 lines above/below
 set number  " show line numbers
 set colorcolumn=80
 set relativenumber 
-color brightelflord 
+set background=light
 highlight ColorColumn ctermbg=233
 
 highlight Error ctermfg=1 ctermbg=257 guifg=Red guibg=Red
@@ -65,6 +65,8 @@ highlight SignColumn ctermfg=1 ctermbg=257 guifg=Red guibg=Red
 highlight Todo ctermfg=1 ctermbg=257 
 highlight SpellCap ctermfg=1 ctermbg=257 
 
+"color wombat256mod
+color peachpuff 
 "--------/Search------------
 set hlsearch
 set incsearch "start searching without enter
@@ -92,7 +94,8 @@ let &t_EI = "\x1b[\x32 q"
 let &t_SI = "\x1b[\x36 q" 
 
 "---------Plugins-Settings--------
-let g:airline_theme='minimalist'
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 0
 let g:livepreview_previewer = 'mupdf'
 let g:airline#extensions#ale#enabled = '1'
 "let g:ale_set_highlights = "0"
