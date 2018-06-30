@@ -1,136 +1,84 @@
-!urxvt.font: 9x15
-!urxvt.font: 
-urxvt.font: xft:Inconsolata:pixelsize=17
+!--------------URXVT----------------
+!      Author: KevinDNF            !
+!    www.github.com/kevindnf       !
+!--------------Font-----------------
+!
+urxvt.font: xft:IBM Plex Mono:style=regular:pixelsize=15:antialias=true
 
-urxvt*internalBorder: 10
-
-urxvt*boldFont: 
-urxvt*italicFont: 
-urxvt*bolditalicFont: 
+urxvt*intensityStyles: true
+urxvt.allow_bold: true
+urxvt*boldFont: xft:IBM Plex Mono:style:Bold:pixelsize=18:antialias=true
+urxvt*italicFont: xft:IBM Plex Mono:style=Italic:pixelsize=18:antialias=true
+urxvt*bolditalicFont: xft:IBM Plex Mono:style=Bold Italic:pixelsize=18:antialias=true
 
 urxvt*letterSpace: 0
 urxvt*lineSpace: 0
 
-urxvt*scrollBar: false
+!--------------Other-----------------
 
-!real transparency
+urxvt*internalBorder: 10
+urxvt.scrollBar: false
 urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0200/c800
 urxvt.saveLines: 9999
 urxvt.iso14755: false
-!URxvt*altSendsEscape: true
-
-
 urxvt.cursorUnderline: false
 
-! special
-*.foreground:   #ffffff
-!*.foreground:   #bcbcbc
-*.background:   #101010
-!*.cursorColor:  #bcbcbc
-*.cursorColor:  #ffffff
+!--------------Perl-----------------
 
-! black
-*.color0:       #101010
-*.color8:       #777777
+urxvt.perl-ext-common: default,matcher,resize-font
+!resize font: ctrl + + and ctrl + -
 
-! red
-*.color1:       #d43333
-*.color9:       #f05454
+!URL Matcher Settings
+urxvt.url-launcher: /usr/bin/vivaldi-stable
+urxvt.matcher.button: 1
+urxvt.matcher.rend.0: ULine Bold fg10
 
-! green
-*.color2:       #5ec364
-*.color10:      #71e783
+!------------Colors-----------------
 
-! yellow
-*.color3:       #8b6bb6
-*.color11:      #b395e2
+!------ Transparency
 
-! blue
-*.color4:       #69d26a
-*.color12:      #68e770
+!real transparency
+!urxvt*background: rgba:0000/0000/0200/c800
 
-! magenta
-*.color5:       #726dbb
-*.color13:      #9b9be2
+! --- special colors ---
 
-! cyan
-*.color6:       #3e694b
-*.color14:      #477654
+*background: #eceaeb
+*foreground: #523533
 
-! white
-*.color7:       #909090
-*.color15:      #999999
-
-!--
-
-*color17: #80e5e2
-*background: #0c1016
-*foreground: #80e5e2
+*background: #eceaeb
+*foreground: #523533
 
 ! --- standard colors ---
 
 ! black
-*color0: #808080
-
-! bright_black
-*color8: #808080
+*.color0:       #f2f3ff
+*.color8:       #ff6d6d
 
 ! red
-*color1: #ff7a80
-
-! bright_red
-*color9: #ffffff
+*.color1:       #d08201
+*.color9:       #df1717
 
 ! green
-*color2: #80ff7a
-
-! bright_green
-*color10: #ffffff
+*.color2:       #744600
+*.color10:      #7d8a00
 
 ! yellow
-*color3: #fff87a
-
-! bright_yellow
-*color11: #ffffff
+*.color3:       #6b6d00
+*.color11:      #eca00c
 
 ! blue
-*color4: #7a80ff
-
-! bright_blue
-*color12: #ffffff
+*.color4:       #746551
+*.color12:      #cf7b57
 
 ! magenta
-*color5: #f87aff
-
-! bright_magenta
-*color13: #ffffff
+*.color5:       #a1662c
+*.color13:      #c273da
 
 ! cyan
-*color6: #7afff8
-
-! bright_cyan
-*color14: #ffffff
+*.color6:       #923c2a
+*.color14:      #11a591
 
 ! white
-*color7: #ffffff
-
-! bright_white
-*color15: #ffffff
-
-
-!some extensions (might try later)
-!urxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
-!urxvt.keysum.M-u: perl:url-select:select_next
-!urxvt.url-select.autocopy: true
-!urxvt.url-select.launcher: chromium
-!urxvt.keysym.M-Escape: perl:keyboard-select:activate
-!urxvt.keysym.M-c:   perl:clipboard:copy
-!urxvt.keysym.C-v:   perl:clipboard:paste
-!urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-!urxvt.clipboard.copycmd:  xsel -ib
-!urxvt.clipboard.pastecmd: xsel -ob
-
-
-
+*.color7:       #564343
+*.color15:      #8e4110
 
