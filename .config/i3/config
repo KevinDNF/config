@@ -145,7 +145,7 @@ mode "resize" {
 		
 		bindsym m gaps inner current plus 10
 		bindsym n gaps inner current minus 10
-		
+			
 		bindsym c border pixel 5 
 		bindsym x border pixel 1 
   
@@ -158,40 +158,30 @@ bindsym $mod+r mode "resize"
 
 
 set $mod Mod4
-#set $term i3-sensible-terminal
-set $term . ~/.config/scripts/terminal.sh
+set $term i3-sensible-terminal
 set $browser vivaldi-stable
 set $rConfig ~/.config/rofi/rofi.conf
 
 #---------------------------Gaps--------------------------------
 
-
-for_window [class="^.*"] border pixel 2 
+for_window [class="^.*"] border pixel 8 
 
 bindsym $mod+b [class="^.*"] border toggle 
 hide_edge_borders both
 
-#some colous				border		background	text
-client.focused				#000000		#eeeeee		#000000
-client.unfocused			#000000		#eeeeee		#000000
-client.focused_inactive		#000000		#eeeeee		#000000	
-client.urgent				#000000		#eeeeee		#000000
+#some colour				border		background	text
+client.focused				#000000		#000000		#ff0000  #222222  #555555
+client.unfocused			#000000		#000000		#ff0000  #222222  #555555
+client.focused_inactive		#000000		#000000		#ff0000  #222222  #555555
+client.urgent				#000000		#000000		#ff0000  #222222  #555555
 
 gaps inner 10
-gaps outer 20
 
 #-------------------------Startup Commands-----------------------
 
 exec compton -b --config ~/.config/compton/compton.conf 
 exec feh --bg-fill ~/.config/wallpaper/wallpaper.jpg 
-exec polybar n 
-
-#------------------------------Scripts----------------------------
-
-bindsym $mod+t exec . ~/.config/scripts/changeBar.sh
-
-
-bindsym $mod+y exec . ~/.config/scripts/nBar.sh 
+exec polybar n-expanded 
 
 #----------------------------LockScreen-----------------------------
 
