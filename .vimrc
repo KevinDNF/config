@@ -16,19 +16,23 @@ set path=**
 set wildmenu
 ""Menu for picking item from FIND
 
+set hidden
+nnoremap <C-P> :bnext<CR>
+nnoremap <C-O> :bprev<CR>
 "--------File-Settings------ 
 set autoread "updates file if edited by other source
 filetype on
 filetype plugin indent on
 syntax on
 
-augroup vimrc "meant to create folds
-	au BufReadPre * setlocal foldmethod=indent
-	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
+"augroup vimrc "meant to create folds
+"	au BufReadPre * setlocal foldmethod=indent
+"	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+"augroup END
 
 "--------Writting-Settings-----
 
+set encoding=utf-8
 set expandtab "change tabs for spaces
 set softtabstop=4 "how many collums pressing tab dows
 set tabstop=4 "how many collums a tab counts
@@ -40,6 +44,7 @@ set autoindent
 set smartindent
 
 autocmd FileType html set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
+autocmd FileType html* set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
 autocmd FileType css set expandtab softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType javascript set expandtab softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType tex set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
@@ -54,19 +59,22 @@ set scrolloff=10 "Automove 10 lines above/below
 set number  " show line numbers
 set colorcolumn=80
 set relativenumber 
-set background=light
 highlight ColorColumn ctermbg=233
 
 highlight Error ctermfg=1 ctermbg=257 guifg=Red guibg=Red
 highlight SpellBad ctermfg=1 ctermbg=257 guifg=Red guibg=Red
 highlight ErrorMsg ctermfg=1 ctermbg=257 guifg=Red guibg=Red
 highlight ALESignColumnWithoutErrors ctermfg=Red ctermbg=257 guifg=Red guibg=Red
-highlight SignColumn ctermfg=1 ctermbg=257 guifg=Red guibg=Red
+highlight SignColumn ctermfg=0 ctermbg=257 guifg=Red guibg=Red
 highlight Todo ctermfg=1 ctermbg=257 
 highlight SpellCap ctermfg=1 ctermbg=257 
 
+set background=light
 "color wombat256mod
 color peachpuff 
+"youcompleteme menu
+highlight Pmenu ctermfg=15 ctermbg=0
+
 "--------/Search------------
 set hlsearch
 set incsearch "start searching without enter
@@ -94,10 +102,38 @@ let &t_EI = "\x1b[\x32 q"
 let &t_SI = "\x1b[\x36 q" 
 
 "---------Plugins-Settings--------
-let g:airline_theme='base16'
-let g:airline_powerline_fonts = 0
+"risky shortcut if you have fat fingers.
+"carefull with <C-z>
+map <C-\> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = '﬌'
+"shift + i for toogle hidden files
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "",
+    \ "Staged"    : "",
+    \ "Untracked" : "",
+    \ "Renamed"   : "凜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "﫧",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '',
+    \ "Unknown"   : "?"
+    \ }
+
 let g:livepreview_previewer = 'mupdf'
+
+set timeoutlen=50
+    "Airline
+let g:airline_theme='onedark'
+let g:onedark_termcolors = 16
+
+let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 1
 let g:airline#extensions#ale#enabled = '1'
+let g:airline#extensions#tabline#enabled = 1
+
+
 "let g:ale_set_highlights = "0"
 "let g:ale_set_signs = "0"
 let g:ale_sign_error = ">>"
@@ -131,9 +167,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'lervag/vimtex'
 Plug 'rawsource/monkey-vim'
 Plug 'valloric/youcompleteme' 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 "Plug 'eslint/eslint'
 Plug 'pangloss/vim-javascript'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-surround'
 
 call plug#end()
