@@ -2,6 +2,14 @@
 # ~/.bashrc
 #
 
+if [ "$TERM" = "linux" ]; then
+    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
+    for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+        echo -en "$i"
+    done
+    clear
+fi
+
 shopt -s autocd
 
 # If not running interactively, don't do anything
@@ -10,7 +18,7 @@ shopt -s autocd
 
 export MONKEY="$HOME/Programs/monkey2"
 PATH="$MONKEY:$MONKEY/bin:$PATH"
-PATH="/root/.gem/ruby/2.5.0/bin:$PATH"
+PATH="/$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH
 
 
