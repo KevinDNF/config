@@ -1,4 +1,6 @@
 ""KevinDNF
+set list
+set listchars=tab:>-,trail:-
 
 set nocompatible 
 autocmd! bufwritepost .vimrc source % "autoreload vimrc
@@ -17,8 +19,8 @@ set wildmenu
 ""Menu for picking item from FIND
 
 set hidden
-nnoremap <C-P> :bnext<CR>
-nnoremap <C-O> :bprev<CR>
+nnoremap <C-O> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 "--------File-Settings------ 
 set autoread "updates file if edited by other source
 filetype on
@@ -33,7 +35,7 @@ syntax on
 "--------Writting-Settings-----
 
 set encoding=utf-8
-set expandtab "change tabs for spaces
+"set expandtab "change tabs for spaces
 set softtabstop=4 "how many collums pressing tab dows
 set tabstop=4 "how many collums a tab counts
 set shiftwidth=4 ">> operations
@@ -57,9 +59,9 @@ set scrolloff=10 "Automove 10 lines above/below
 "----------Editor-Visuals-----
 
 set number  " show line numbers
-set colorcolumn=80
 set relativenumber 
-highlight ColorColumn ctermbg=233
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=233
 
 highlight Error ctermfg=1 ctermbg=257 guifg=Red guibg=Red
 highlight SpellBad ctermfg=1 ctermbg=257 guifg=Red guibg=Red
@@ -71,7 +73,8 @@ highlight SpellCap ctermfg=1 ctermbg=257
 
 set background=light
 "color wombat256mod
-color peachpuff 
+color peachpuff "light theme
+"color brightelflord "Dark theme
 "youcompleteme menu
 highlight Pmenu ctermfg=15 ctermbg=0
 
@@ -104,7 +107,7 @@ let &t_SI = "\x1b[\x36 q"
 "---------Plugins-Settings--------
 "risky shortcut if you have fat fingers.
 "carefull with <C-z>
-map <C-\> :NERDTreeToggle<CR>
+map <silent> <C-\> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = '﬌'
 "shift + i for toogle hidden files
@@ -125,7 +128,7 @@ let g:livepreview_previewer = 'mupdf'
 
 set timeoutlen=50
     "Airline
-let g:airline_theme='onedark'
+let g:airline_theme='atomic' "light theme
 let g:onedark_termcolors = 16
 
 let g:airline_powerline_fonts = 1
@@ -139,6 +142,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ale_sign_error = ">>"
 let g:ale_sign_column_always = "1"
 "let g:ale_sign_style_error = ""
+
+"TMUX CONFIG
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+"nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 "--------------Compile-----------
 
@@ -174,5 +186,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()

@@ -2,35 +2,66 @@
 # ~/.bashrc
 #
 
+function initTmux() {
+    if [ -n "$(tmux list-sessions 2> /dev/null)" ]; then
+    	tmux attach
+    elif [ -n "$SSH_CONNECTION" ]; then
+    	tmux
+    fi
+}
+
 if [ "$TERM" = "linux" ]; then
-    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
-    for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+    _sedcmd='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fa-f]\{6\}\).*/\1 \2/p'
+    for i in $(sed -n "$_sedcmd" $home/.xresources | awk '$1 < 16 {printf "\\e]p%x%s", $1, $2}'); do
         echo -en "$i"
     done
     clear
+	initTmux
+elif [ "$TERM" = "screen" ]; then
+	export TERM="screen-256color"
+else
+	initTmux
 fi
 
-shopt -s autocd
+export BROWSER=/usr/bin/vivaldi-stable
+export EDITOR=/usr/bin/vim
+export MONKEY="$HOME/Programs/monkey2"
+export VISUAL=/usr/bin/vim
+RUBYPATH="$HOME/.gem/ruby"
+SCRIPTS=".config/scripts"
+PATH="$SCRIPTS:$MONKEY:$MONKEY/bin:$PATH:$RUBYPATH"
+export PATH
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-export MONKEY="$HOME/Programs/monkey2"
-PATH="$MONKEY:$MONKEY/bin:$PATH"
-PATH="/$HOME/.gem/ruby/2.5.0/bin:$PATH"
-export PATH
-
-
-echo -e -n "\x1b[\x34 q" # changes to steady underline
-
 alias ls='ls --color=auto -F --group-directories-first '
 alias la='ls -a'
-alias wifi='. .config/scripts/wifi.sh'
-alias gport='google-chrome-stable --proxy-server=wwwcache.port.ac.uk:81'
+alias ll='ls -l'
 alias grep="grep --color=always"
-#alias cat="highlight --out-format=xterm256"
+alias egrep="egrep --color=always"
+alias gport='google-chrome-stable --proxy-server=wwwcache.port.ac.uk:81'
+if [ -n "$(whereis highlight | sed 's/highlight://')" ]; then
+    #Highlight installed
+    alias cat="highlight --out-format=xterm256"
+fi
 
+if [ ! -n "$( whereis pip | grep pip3 )" ] && \
+		[ ! -n "$(alias pip 2> /dev/null | grep pip3)" ] ;then
+	alias pip='pip3'
+	#echo "Pip alias set to pip3"
+fi
+
+# Appends instead of overwritting the History file
+shopt -s histappend 
+
+#updates text fill after commands
+shopt -s checkwinsize
+
+#cd not required
+shopt -s autocd
+
+echo -e -n "\x1b[\x34 q" # changes to steady underline
 
 fcd() {
 
@@ -43,11 +74,10 @@ fcf() {
 	cd "$(dirname "$(find ~/ -iname "$1" | head -1)")"
 }
 
-
-#PS1='[\u@\h \w]\$ '
-###----------------
-
-##########################
+# get shorten path
+function shorten_path() {
+    pwd | sed "s/$(echo "$HOME" | sed 's/\//\\\//g')//g"
+}
 
 # get current branch in git repo
 function parse_git_branch() {
@@ -104,25 +134,21 @@ function nonzero_return() {
 export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m[\]\u@\h \[\e[m\]\W]\[\e[m\]\`parse_git_branch\`\[\e[m\]\\$\[\e[m\] "
 
 
+if [ -n "$SSH_CONNECTION" ]; then
+    ERRCODE="\[\e[31m\]\`nonzero_return\`\[\e[m[\]"
+    USERHOST="\[\e[36m\]\u@\h \[\e[m\]"
+    USRPATH="\[\e[34m\]\W\[\e[m]"
+    #SHORTUSRPATH="\[\e[34m\]\`shorten_path\`\[\e[m"
+    GITBRANCH="\[\e[m\]\`parse_git_branch\`\[\e[m\]\\$\[\e[m\] "
 
-######################
+    export PS1=$ERRCODE$USERHOST$USRPATH$GITBRANCH$SHORTUSRPATH
 
-# Appends instead of overwritting the History file
-shopt -s histappend
+else
+    # Sets keyboard to gb
+    setxkbmap gb
+    setxkbmap -option caps:swapescape
 
-# Sets keyboard to gb
-setxkbmap gb
-setxkbmap -option caps:swapescape
-
-
-#updates text fill after commands
-shopt -s checkwinsize
-
-###------------------
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-	 exec startx -- -background none
+    if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+         exec startx -- -background none
+    fi
 fi
-
-
-export BROWSER=/usr/bin/vivaldi-stable
-export EDITOR=/usr/bin/vim
