@@ -17,8 +17,10 @@ if [ "$TERM" = "linux" ]; then
     done
     clear
 	initTmux
-elif [ "$TERM" = "screen" ]; then
-	export TERM="screen-256color"
+elif [  -n "$(echo "$TERM" | grep screen)" ]; then
+	if [ "$TERM" = "screen" ]; then
+		export TERM="screen-256color"
+	fi
 else
 	initTmux
 fi
@@ -61,7 +63,9 @@ shopt -s checkwinsize
 #cd not required
 shopt -s autocd
 
-echo -e -n "\x1b[\x34 q" # changes to steady underline
+reset-cursor() {
+	echo -e -n "\x1b[\x34 q" # changes to steady underline
+}
 
 fcd() {
 
@@ -72,11 +76,6 @@ fcd() {
 fcf() {
 
 	cd "$(dirname "$(find ~/ -iname "$1" | head -1)")"
-}
-
-# get shorten path
-function shorten_path() {
-    pwd | sed "s/$(echo "$HOME" | sed 's/\//\\\//g')//g"
 }
 
 # get current branch in git repo
@@ -131,20 +130,18 @@ function nonzero_return() {
 	[ $RETVAL -ne 0 ] && echo "$RETVAL"
 }
 
-export PS1="\[\e[31m\]\`nonzero_return\`\[\e[m[\]\u@\h \[\e[m\]\W]\[\e[m\]\`parse_git_branch\`\[\e[m\]\\$\[\e[m\] "
-
-
-if [ -n "$SSH_CONNECTION" ]; then
     ERRCODE="\[\e[31m\]\`nonzero_return\`\[\e[m[\]"
+    USER="\[\e[36m\]\u \[\e[m\]"
     USERHOST="\[\e[36m\]\u@\h \[\e[m\]"
     USRPATH="\[\e[34m\]\W\[\e[m]"
-    #SHORTUSRPATH="\[\e[34m\]\`shorten_path\`\[\e[m"
     GITBRANCH="\[\e[m\]\`parse_git_branch\`\[\e[m\]\\$\[\e[m\] "
 
-    export PS1=$ERRCODE$USERHOST$USRPATH$GITBRANCH$SHORTUSRPATH
-
+if [ -n "$SSH_CONNECTION" ]; then
+    export PS1=$ERRCODE$USERHOST$USRPATH$GITBRANCH
 else
-    # Sets keyboard to gb
+	export PS1=$(reset-cursor)$ERRCODE$USRPATH$GITBRANCH
+
+	# Sets keyboard to gb
     setxkbmap gb
     setxkbmap -option caps:swapescape
 
