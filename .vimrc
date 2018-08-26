@@ -72,9 +72,12 @@ highlight Todo ctermfg=1 ctermbg=257
 highlight SpellCap ctermfg=1 ctermbg=257 
 
 set background=light
-"color wombat256mod
+
 color peachpuff "light theme
-"color brightelflord "Dark theme
+if $SSH_CONNECTION
+	color brightelflord
+endif
+
 "youcompleteme menu
 highlight Pmenu ctermfg=15 ctermbg=0
 
@@ -128,9 +131,11 @@ let g:livepreview_previewer = 'mupdf'
 
 set timeoutlen=50
     "Airline
-let g:airline_theme='atomic' "light theme
+let g:airline_theme='onedark' "light theme
 let g:onedark_termcolors = 16
-
+if $SSH_CONNECTION
+	let g:airline_theme='atomic' "light theme
+endif
 let g:airline_powerline_fonts = 1
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#ale#enabled = '1'
