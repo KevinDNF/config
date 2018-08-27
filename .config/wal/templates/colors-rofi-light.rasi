@@ -3,88 +3,88 @@
  * www.github.com/kevindnf
 */
 
-* {
+* {{
     font:"IBM Plex Mono 18";
-    /*background: #eceaeb;*/
-    foreground: #523533;
+    background: {color7};
+    foreground: {color0};
     transparent: #00000000;
     text-color:@foreground;
-}
-#window {
+}}
+#window {{
     background-color:@background;
     location:center;
     width:30%;
     y-offset:-20%;
-}
-#mainbox {
+}}
+#mainbox {{
     background-color:@background;
     children: [inputbar];
-}
-#inputbar {
+}}
+#inputbar {{
     background-color:@transparent;
     children: [entry, listview];
     padding:10px;
-}
-#entry {
+}}
+#entry {{
     background-color:@transparent;
-}
-#prompt {
+}}
+#prompt {{
     background-color:@transparent;
-}
+}}
 
-#listview {
+#listview {{
     background-color:@transparent;
     lines:1;
-}
+}}
 
 
-#textbox {
+#textbox {{
     background-color:@transparent;
-}
-#case-indicator {
+}}
+#case-indicator {{
     background-color:@transparent;
-}
-#message {
+}}
+#message {{
     background-color:@transparent;
-}
+}}
 
-#element {
+#element {{
     background-color:@transparent;
-}
-#element.normal.normal {
+}}
+#element.normal.normal {{
     background-color:@transparent;
-}
-#element.normal.urgent {
+}}
+#element.normal.urgent {{
     background-color:@transparent;
-}
-#element.normal.active {
+}}
+#element.normal.active {{
     background-color:@transparent;
-}
-#element.selected.normal {
+}}
+#element.selected.normal {{
     background-color:@transparent;
-}
-#element.selected.urgent {
+}}
+#element.selected.urgent {{
     background-color:@transparent;
-}
-#element.selected.active {
+}}
+#element.selected.active {{
     background-color:@transparent;
-}
-#element.alternate.normal {
+}}
+#element.alternate.normal {{
     background-color:@transparent;
-}
-#element.alternate.urgent {
+}}
+#element.alternate.urgent {{
     background-color:@transparent;
-}
-#element.alternate.active {
+}}
+#element.alternate.active {{
     background-color:@transparent;
-}
-#scrollbar {
+}}
+#scrollbar {{
     background-color:@transparent;
-}
-#sidebar {
+}}
+#sidebar {{
     background-color:@transparent;
-}
-#button.selected {
+}}
+#button.selected {{
     background-color:@transparent;
-}
+}}
 

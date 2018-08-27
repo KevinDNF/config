@@ -71,7 +71,8 @@ highlight SignColumn ctermfg=0 ctermbg=257 guifg=Red guibg=Red
 highlight Todo ctermfg=1 ctermbg=257 
 highlight SpellCap ctermfg=1 ctermbg=257 
 
-set background=light
+"set background=light
+set background=dark
 
 color peachpuff "light theme
 if $SSH_CONNECTION
@@ -132,6 +133,7 @@ let g:livepreview_previewer = 'mupdf'
 set timeoutlen=50
     "Airline
 let g:airline_theme='onedark' "light theme
+let g:airline_theme='base16' 
 let g:onedark_termcolors = 16
 if $SSH_CONNECTION
 	let g:airline_theme='atomic' "light theme
@@ -192,5 +194,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dylanaraps/wal.vim'
+
 
 call plug#end()
+colorscheme wal

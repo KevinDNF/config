@@ -169,11 +169,15 @@ for_window [class="^.*"] border pixel 8
 bindsym $mod+b [class="^.*"] border toggle 
 hide_edge_borders both
 
+set_from_resource $fg i3wm.color8
+set_from_resource $bg i3wm.color5
+set_from_resource $bg i3wm.color7 #Light background
+
 #some colour				border		background	text
-client.focused				#000000		#000000		#ff0000  #222222  #555555
-client.unfocused			#000000		#000000		#ff0000  #222222  #555555
-client.focused_inactive		#000000		#000000		#ff0000  #222222  #555555
-client.urgent				#000000		#000000		#ff0000  #222222  #555555
+client.focused				$bg		$bg		$fg  $bg  $bg
+client.unfocused			$bg		$bg		$fg  $bg  $bg
+client.focused_inactive		$bg		$bg		$fg  $bg  $bg
+client.urgent				$bg		$bg		$fg  $bg  $bg
 
 gaps inner 10
 
@@ -181,7 +185,7 @@ gaps inner 10
 
 exec compton -b --config ~/.config/compton/compton.conf 
 exec feh --bg-fill ~/.config/wallpaper/wallpaper.jpg 
-exec polybar n-expanded 
+exec polybar minimal
 
 #----------------------------LockScreen-----------------------------
 
@@ -211,9 +215,13 @@ bindsym $mod+d exec --no-startup-id rofi -config $rConfig -show drun
 
 #set $audio --no-startup-id bash ~/.config/Scripts/audio_pulse.sh
 
-set $VolUp amixer -D pulse sset Master 5%+
-set $VolDown amixer -D pulse sset Master 5%-
-set $mute amixer -D pulse sset Master toggle 
+#set $VolUp amixer -D pulse sset Master 5%+
+#set $VolDown amixer -D pulse sset Master 5%-
+#set $mute amixer -D pulse sset Master toggle 
+
+set $VolUp pactl set-sink-volume 0 +5%
+set $VolDown pactl set-sink-volume 0 -5%
+set $mute pactl set-sink-mute toogle
 
 
 bindsym XF86AudioMute		exec $mute
