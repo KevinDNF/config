@@ -279,8 +279,8 @@ format-prefix-background = ${colors.color3}
 label-background = ${colors.color3}
 
 [module/volume]
-type = internal/volume
-master-soundcard=hw:1
+type = internal/alsa
+master-soundcard=hw:0
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-background = ${colors.foreground}
@@ -293,10 +293,11 @@ ramp-volume-font = 2
 ramp-volume-0 = 
 ramp-volume-1 = 
 
-format-muted = <label-muted>
+format-muted = <label-muted> 
 format-muted-padding = 1
 format-muted-foreground = ${colors.background}
 format-muted-background = ${colors.foreground}
+label-muted-font = 2
 label-muted = 
 
 [module/battery]

@@ -3,13 +3,13 @@
 !    www.github.com/kevindnf       !
 !--------------Font-----------------
 !
-urxvt.font: xft:IBM Plex Mono:style=regular:pixelsize=15:antialias=true
+urxvt.font: xft:IBMPlexMono Nerd Font Mono:pixelsize=15:antialias=true:style:bold
 
 urxvt*intensityStyles: true
 urxvt.allow_bold: true
-urxvt*boldFont: xft:IBM Plex Mono:style:Bold:pixelsize=18:antialias=true
-urxvt*italicFont: xft:IBM Plex Mono:style=Italic:pixelsize=18:antialias=true
-urxvt*bolditalicFont: xft:IBM Plex Mono:style=Bold Italic:pixelsize=18:antialias=true
+urxvt*boldFont: xft:IBMPlexMono Nerd Font Mono:style:Bold:pixelsize=18:antialias=true
+urxvt*italicFont: xft:IBMPlexMono Nerd Font Mono:style=Italic:pixelsize=18:antialias=true
+urxvt*bolditalicFont: xft:IBMPlexMono Nerd Font Mono:style=Bold Italic:pixelsize=18:antialias=true
 
 urxvt*letterSpace: 0
 urxvt*lineSpace: 0
@@ -22,6 +22,7 @@ urxvt*depth: 32
 urxvt.saveLines: 9999
 urxvt.iso14755: false
 urxvt.cursorUnderline: false
+urxvt*dynamicColors: on
 
 !--------------Perl-----------------
 
@@ -42,43 +43,27 @@ urxvt.matcher.rend.0: ULine Bold fg10
 
 ! --- special colors ---
 
-*background: #eceaeb
-*foreground: #523533
-
-*background: #eceaeb
-*foreground: #523533
+*background: #191f1e
+*foreground: #c5c7c6
 
 ! --- standard colors ---
 
-! black
-*.color0:       #f2f3ff
-*.color8:       #ff6d6d
+*.color0: #191f1e
+*.color1: #be3a33
+*.color2: #75a69f
+*.color3: #4ca3a6
+*.color4: #6f8caa
+*.color5: #9e8fa4
+*.color6: #aa636c
+*.color7: #c5c7c6
+*.color8: #525756
+*.color9: #be3a33
+*.color10: #75a69f
+*.color11: #4ca3a6
+*.color12: #6f8caa
+*.color13: #9e8fa4
+*.color14: #aa636c
+*.color15: #c5c7c6
 
-! red
-*.color1:       #d08201
-*.color9:       #df1717
-
-! green
-*.color2:       #744600
-*.color10:      #7d8a00
-
-! yellow
-*.color3:       #6b6d00
-*.color11:      #eca00c
-
-! blue
-*.color4:       #746551
-*.color12:      #cf7b57
-
-! magenta
-*.color5:       #a1662c
-*.color13:      #c273da
-
-! cyan
-*.color6:       #923c2a
-*.color14:      #11a591
-
-! white
-*.color7:       #564343
-*.color15:      #8e4110
-
+rofi.vars.f1: #ff0000
+rofi.vars.b1: #0000ff

@@ -5,8 +5,8 @@
 
 * {
     font:"IBM Plex Mono 18";
-    /*background: #eceaeb;*/
-    foreground: #523533;
+    background: #e9e9eb;
+    foreground: #23211f;
     transparent: #00000000;
     text-color:@foreground;
 }
@@ -28,63 +28,10 @@
 #entry {
     background-color:@transparent;
 }
-#prompt {
-    background-color:@transparent;
-}
-
 #listview {
     background-color:@transparent;
     lines:1;
 }
-
-
-#textbox {
-    background-color:@transparent;
-}
-#case-indicator {
-    background-color:@transparent;
-}
-#message {
-    background-color:@transparent;
-}
-
 #element {
     background-color:@transparent;
 }
-#element.normal.normal {
-    background-color:@transparent;
-}
-#element.normal.urgent {
-    background-color:@transparent;
-}
-#element.normal.active {
-    background-color:@transparent;
-}
-#element.selected.normal {
-    background-color:@transparent;
-}
-#element.selected.urgent {
-    background-color:@transparent;
-}
-#element.selected.active {
-    background-color:@transparent;
-}
-#element.alternate.normal {
-    background-color:@transparent;
-}
-#element.alternate.urgent {
-    background-color:@transparent;
-}
-#element.alternate.active {
-    background-color:@transparent;
-}
-#scrollbar {
-    background-color:@transparent;
-}
-#sidebar {
-    background-color:@transparent;
-}
-#button.selected {
-    background-color:@transparent;
-}
-

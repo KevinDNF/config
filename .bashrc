@@ -48,12 +48,6 @@ if [ -n "$(whereis highlight | sed 's/highlight://')" ]; then
     alias cat="highlight --out-format=xterm256"
 fi
 
-if [ ! -n "$( whereis pip | grep pip3 )" ] && \
-		[ ! -n "$(alias pip 2> /dev/null | grep pip3)" ] ;then
-	alias pip='pip3'
-	#echo "Pip alias set to pip3"
-fi
-
 # Appends instead of overwritting the History file
 shopt -s histappend 
 

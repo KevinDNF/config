@@ -1,8 +1,11 @@
+set mouse=a
+nnoremap <F1> :Goyo <bar> Limelight!! <CR>
+
 ""KevinDNF
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>.,trail:-,extends:#,nbsp:.
 
-set nocompatible 
+set nocompatible
 autocmd! bufwritepost .vimrc source % "autoreload vimrc
 
 ""--------------------------FILE BROWSER-------------------------"
@@ -19,8 +22,8 @@ set wildmenu
 ""Menu for picking item from FIND
 
 set hidden
-nnoremap <C-O> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+nnoremap <C-P> :bnext<CR>
+nnoremap <C-O> :bprev<CR>
 "--------File-Settings------ 
 set autoread "updates file if edited by other source
 filetype on
@@ -35,12 +38,12 @@ syntax on
 "--------Writting-Settings-----
 
 set encoding=utf-8
-"set expandtab "change tabs for spaces
+set expandtab "change tabs for spaces
 set softtabstop=4 "how many collums pressing tab dows
 set tabstop=4 "how many collums a tab counts
 set shiftwidth=4 ">> operations
 
-"set smarttab
+set smarttab
 
 set autoindent
 set smartindent
@@ -52,7 +55,7 @@ autocmd FileType javascript set expandtab softtabstop=2 tabstop=2 shiftwidth=2
 autocmd FileType tex set expandtab softtabstop=2 tabstop=2 shiftwidth=2 textwidth=75
 autocmd FileType markdown set textwidth=48
 
-set linebreak nolist "break on end word
+set linebreak  "break on end word
 filetype indent on
 set scrolloff=10 "Automove 10 lines above/below
 
@@ -76,7 +79,7 @@ set background=dark
 
 color peachpuff "light theme
 if $SSH_CONNECTION
-	color brightelflord
+    color brightelflord
 endif
 
 "youcompleteme menu
@@ -104,9 +107,15 @@ set noswapfile
 "Changes the cursor when in insert and Normal
 
 "Normal Mode
-let &t_EI = "\x1b[\x32 q"
-"Insert Mode
-let &t_SI = "\x1b[\x36 q" 
+if exists('$TMUX')
+    let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[4 q\033\\"
+else
+    let &t_EI = "\x1b[\x32 q"
+    "Insert Mode
+    let &t_SI = "\x1b[\x36 q"
+endif
 
 "---------Plugins-Settings--------
 "risky shortcut if you have fat fingers.
@@ -133,7 +142,7 @@ let g:livepreview_previewer = 'mupdf'
 set timeoutlen=50
     "Airline
 let g:airline_theme='onedark' "light theme
-let g:airline_theme='base16' 
+let g:airline_theme='wal' 
 let g:onedark_termcolors = 16
 if $SSH_CONNECTION
 	let g:airline_theme='atomic' "light theme
@@ -195,7 +204,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dylanaraps/wal.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 
 call plug#end()
-colorscheme wal
+color wal
