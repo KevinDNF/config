@@ -2,13 +2,17 @@
 
 ## Hardware used
 
-PC - Hackintosh
+### Hackintosh
 OS     - High Sierra
+
 CPU    - AMD FX8350 @ 4.00GHz
+
 GPU    - NVIDIA GTX970
+
 RAM    - 32GB DDR3
 
-Laptop - Macbook Pro 13"
+### Macbook Pro 13"
+OS     - Mojave + VM with Kali
 
 ## Programs used
 
